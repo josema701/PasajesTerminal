@@ -15,7 +15,7 @@ class Permiso extends Component
 
     public function render()
     {
-        $permisos = Permission::with('permissions')->where('name', 'LIKE', "%$this->search%")->paginate($this->perPage);
+        $permisos = Permission::with('permissions')->where('name', 'LIKE', "%" . $this->search . "%")->paginate($this->perPage);
 
         return view('livewire.ajustes.permiso', compact('permisos'));
     }

@@ -21,7 +21,7 @@ class Rol extends Component
 
     public function render()
     {
-        $roles = Role::with('permissions')->where('name', 'LIKE', "%$this->search%")->paginate($this->perPage);
+        $roles = Role::with('permissions')->where('name', 'LIKE', "%" . $this->search . "%")->paginate($this->perPage);
         return view('livewire.ajustes.rol', compact('roles'));
     }
 

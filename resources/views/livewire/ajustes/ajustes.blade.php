@@ -16,9 +16,13 @@
                     <button wire:click="verVista('permisos')" class="inline-flex items-center rounded-md @if ($vistaAdmin == 'permisos') bg-indigo-700 text-white hover:bg-gray-50 hover:text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 @else bg-white text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 @endif px-4 py-2 text-sm font-semibold ">
                         Permisos
                     </button>
-                    {{-- <button wire:click="verVista('estados')" class="inline-flex items-center rounded-md @if ($vistaAdmin == 'estados') bg-indigo-700 text-white hover:bg-gray-50 hover:text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 @else bg-white text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 @endif px-4 py-2 text-sm font-semibold ">
-                        Estados
+                    <button wire:click="verVista('ciudades')" class="inline-flex items-center rounded-md @if ($vistaAdmin == 'ciudades') bg-indigo-700 text-white hover:bg-gray-50 hover:text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 @else bg-white text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 @endif px-4 py-2 text-sm font-semibold ">
+                        Ciudades
                     </button>
+                    <button wire:click="verVista('terminales')" class="inline-flex items-center rounded-md @if ($vistaAdmin == 'terminales') bg-indigo-700 text-white hover:bg-gray-50 hover:text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 @else bg-white text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 @endif px-4 py-2 text-sm font-semibold ">
+                        Terminales
+                    </button>
+                    {{--
                     <button wire:click="verVista('internos')" class="inline-flex items-center rounded-md @if ($vistaAdmin == 'internos') bg-indigo-700 text-white hover:bg-gray-50 hover:text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 @else bg-white text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 @endif px-4 py-2 text-sm font-semibold ">
                         Estados internos
                     </button>
@@ -72,6 +76,24 @@
                             </svg>
                         </div>
                         <h2 class="text-lg font-semibold">Permisos</h2>
+                    </button>
+
+                    <button wire:click="verVista('ciudades')" class="bg-white p-4 rounded-lg shadow-md text-center bg-white text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 px-4 py-2 text-sm font-semibold">
+                        <div class="text-4xl mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-16 h-16 mx-auto mb-4 border rounded-full border-gray-300 p-2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m6.115 5.19.319 1.913A6 6 0 0 0 8.11 10.36L9.75 12l-.387.775c-.217.433-.132.956.21 1.298l1.348 1.348c.21.21.329.497.329.795v1.089c0 .426.24.815.622 1.006l.153.076c.433.217.956.132 1.298-.21l.723-.723a8.7 8.7 0 0 0 2.288-4.042 1.087 1.087 0 0 0-.358-1.099l-1.33-1.108c-.251-.21-.582-.299-.905-.245l-1.17.195a1.125 1.125 0 0 1-.98-.314l-.295-.295a1.125 1.125 0 0 1 0-1.591l.13-.132a1.125 1.125 0 0 1 1.3-.21l.603.302a.809.809 0 0 0 1.086-1.086L14.25 7.5l1.256-.837a4.5 4.5 0 0 0 1.528-1.732l.146-.292M6.115 5.19A9 9 0 1 0 17.18 4.64M6.115 5.19A8.965 8.965 0 0 1 12 3c1.929 0 3.716.607 5.18 1.64" />
+                            </svg>
+                        </div>
+                        <h2 class="text-lg font-semibold">Ciudades</h2>
+                    </button>
+
+                    <button wire:click="verVista('terminales')" class="bg-white p-4 rounded-lg shadow-md text-center bg-white text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 px-4 py-2 text-sm font-semibold">
+                        <div class="text-4xl mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-16 h-16 mx-auto mb-4 border rounded-full border-gray-300 p-2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0 0 12 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75Z" />
+                            </svg>
+                        </div>
+                        <h2 class="text-lg font-semibold">Terminales</h2>
                     </button>
 
 
@@ -171,32 +193,12 @@
                 @if ($vistaAdmin == 'permisos')
                     <livewire:ajustes.permiso />
                 @endif
-                {{-- @if ($vistaAdmin == 'juzgados')
-                    <livewire:administracion.juzgados />
+                @if ($vistaAdmin == 'ciudades')
+                    <livewire:ajustes.ciudades />
                 @endif
-                @if ($vistaAdmin == 'carteras')
-                    <livewire:administracion.carteras />
+                @if ($vistaAdmin == 'terminales')
+                    <livewire:ajustes.terminales />
                 @endif
-
-                @if ($vistaAdmin == 'materias')
-                    <livewire:administracion.materias />
-                @endif
-
-                @if ($vistaAdmin == 'submaterias')
-                    <livewire:administracion.submaterias :materia_id="$materia_id" />
-                @endif
-
-                @if ($vistaAdmin == 'estados')
-                    <livewire:administracion.estados :materia_id="$materia_id" />
-                @endif
-
-                @if ($vistaAdmin == 'internos')
-                    <livewire:administracion.estados-internos />
-                @endif
-
-                @if ($vistaAdmin == 'etapas')
-                    <livewire:administracion.etapas />
-                @endif --}}
 
             </div>
         </div>

@@ -262,6 +262,14 @@
             @csrf
 
             <div class="mb-3">
+                <x-label for="tipo" value="{{ __('Tipo de usuario') }}" />
+                <select name="tipo" id="tipo" class="block mt-1 w-full border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm" required>
+                    <option value="Cliente" {{ old('tipo') == 'Cliente' ? 'selected' : '' }}>Cliente</option>
+                    <option value="Empresa" {{ old('tipo') == 'Empresa' ? 'selected' : '' }}>Empresa</option>
+                </select>
+            </div>
+
+            <div class="mb-3">
                 <x-label for="nacionalidad" value="{{ __('Nacionalidad') }}" />
                 <select name="nacionalidad" id="nacionalidad" class="block mt-1 w-full border-gray-300 dark:border-gray-700 dark:bg-gray-900 dark:text-gray-300 focus:border-indigo-500 dark:focus:border-indigo-600 focus:ring-indigo-500 dark:focus:ring-indigo-600 rounded-md shadow-sm" required>
                     @foreach($paises as $pais)

@@ -24,11 +24,11 @@ class CreateNewUser implements CreatesNewUsers
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => $this->passwordRules(),
             'terms' => Jetstream::hasTermsAndPrivacyPolicyFeature() ? ['accepted', 'required'] : '',
-
             'nacionalidad' => ['required', 'string', 'max:255'],
             'documento' => ['required', 'string', 'max:255'],
             'tipo_documento' => ['required', 'string', 'max:255'],
             'telefono' => ['required', 'string', 'max:255'],
+            'tipo' => ['required', 'string', 'in:Cliente,Empresa'],
         ])->validate();
 
         $usuario = User::create([
@@ -42,7 +42,7 @@ class CreateNewUser implements CreatesNewUsers
             'telefono' => $input['telefono'],
         ]);
 
-        $usuario->assignRole('Cliente');
+        $usuario->assignRole($input['tipo']);
 
         return $usuario;
 

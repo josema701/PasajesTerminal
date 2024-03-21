@@ -11,6 +11,20 @@
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
 
+        <style>
+            /* CHECKBOX TOGGLE SWITCH */
+            /* @apply rules for documentation, these do not work as inline style */
+            .toggle-checkbox:checked {
+              @apply: right-0 border-green-400;
+              right: 0;
+              border-color: #68D391;
+            }
+            .toggle-checkbox:checked + .toggle-label {
+              @apply: bg-green-400;
+              background-color: #68D391;
+            }
+        </style>
+
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 
